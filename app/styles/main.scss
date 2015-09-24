@@ -1,4 +1,89 @@
+@import "variables.scss";
+//@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
 // bower:scss
 @import "bootstrap.scss";
 // endbower
+
+.texture {
+	background: url(../images/texture.png);
+	opacity: 0.05;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+}
+
+.main {
+	background: #fff;
+}
+
+.wrapper {
+	position: relative;
+	z-index: 10;
+}
+
+.header {
+	background: url(../images/bg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: bottom;
+	position: relative;
+}
+
+.m-bretagne {
+	position: absolute;
+	z-index: 20;
+	top: 1em;
+	right: 0;
+}
+
+
+.accueil {
+
+	.header {
+		display: flex;
+		justify-content : center;
+		align-items: center;
+		height: 70vh;
+		opacity: 1;
+		h1 {
+			text-shadow: 2px 2px 0px rgba(255, 255, 255, 1);
+		}
+		h2 {
+			text-shadow: 1px 1px 0px rgba(255, 255, 255, 1);
+		}
+		
+	}
+}
+
+.partenaires .list {
+	display : flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: space-between;
+	align-items: baseline;
+	li {
+		flex: 1;
+		flex-basis: 15%;
+		align-self: center;
+		text-align: center;
+		img {
+			max-width: 150px;
+		}
+	}
+}
+
+.footer {
+	background: #000;
+	* {
+		color: $gray-lighter;
+	}
+
+	a:hover, a:focus {
+		color: $gray-lighter;
+		text-decoration: underline;
+	}
+}

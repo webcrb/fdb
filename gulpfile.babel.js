@@ -34,11 +34,15 @@ function lint(files, options) {
 }
 const testLintOptions = {
   env: {
-    mocha: true
+    mocha: false,
+    browser: true,
+  },
+  globals: {
+    angular: true
   }
 };
 
-gulp.task('lint', lint('app/scripts/**/*.js'));
+gulp.task('lint', lint('app/scripts/**/*.js' , testLintOptions));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['styles'], () => {

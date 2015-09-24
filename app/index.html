@@ -1,10 +1,17 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="fr_FR" ng-app="fdbapp">
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>fdb2016</title>
+    <title>Fête de la Bretagne 2016</title>
+    <meta name="description" content="Du 14 au 22mai 2016 : plus 150 évenements en Bretagne et partout dans le monde "/>
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fête de la Bretagne - Gouel Breizh" />
+    <meta property="og:description" content="Gouel Breizh" />
+    <meta property="og:url" content="http://www.fetedelabretagne.bzh" />
+    <meta property="og:site_name" content="Fête de la Bretagne" />
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -17,52 +24,147 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <!-- Pictothèque -->
+    <link rel="stylesheet" href="http://guidestyles.bretagne.bzh/styles/crbicon.css">
     
     <!-- build:js scripts/vendor/modernizr.js -->
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body>
+  <body class="accueil">
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-    <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">fdb2016</h3>
-      </div>
 
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
+    <header class="header">
+      <div class="texture"></div>
+      <div class="wrapper text-center">
+        <h1 class="sr-only">Fête de la <br> Bretagne <br><small class="text-muted">gouel breizh</small></h1>
+        <img src="images/fdb.png" height="366" width="579" alt="">
       </div>
+      <a href="http://www.marque-bretagne.fr/" class="m-bretagne"><img src="images/marque-bretagne.png" height="60" width="136" alt="bretagne"></a>
+    </header>
 
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-          
-          <h4>Sass</h4>
-          <p>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.</p>
-          
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-          <h4>Modernizr</h4>
-          <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
+      <main class="main p-a-lg" ng-controller="mainCtrl as main">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+               <p>
+                <a href="https://openagenda.com/fete-de-la-bretagne-gouel-breizh-2015" class="btn btn-lg btn-primary-outline"><i class="icon-desktop"></i> voir la programmation</a>
+              </p>
+              <ul class="list-unstyled h2 m-t-lg">
+                <li class="m-b-md"><i class="icon-map-marker"></i> plus de <strong class="text-primary">150</strong> évèvements</li>
+                <li class="m-b-md"><i class="icon-globe"></i> <strong class="text-primary">115</strong> villes dans le monde</li>
+                <li class="m-b-md"><i class="icon-user"></i> <strong class="text-primary">120</strong> organisateurs</li>
+                <li class="m-b-md"><i class="icon-group"></i> <strong class="text-primary">7000</strong> bénévoles</li>
+              </ul>
+              <hr>
+              <div class="reseaux m-t-md">
+                <ul class="list list-inline">
+                  <li><a href="https://www.facebook.com/FetedelaBretagne" class="btn btn-info-outline"><i class="icon-facebook"></i> facebook</a></li>
+                  <li><a href="https://twitter.com/FeteBretagne" class="btn btn-info-outline"><i class="icon-twitter"></i> twitter</a></li>
+                  <li><a href="http://www.pinterest.com/fetebretagne/" class="btn btn-info-outline"><i class="icon-pinterest"></i> pinterest</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <h2>L'édito</h2>
+              <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
+              <p><i class="icon-download"></i> <a href="#">Télécharger le programme en pdf</a></p>
+              <p>{{ main.test }}</p>
+              <p>{{ main.prog }}</p>
+            </div>
+            
+          </div>
           
         </div>
-      </div>
+      </main>
 
-      <div class="footer">
-        <p>♥ from the Yeoman team</p>
-      </div>
+      <section class="partenaires p-a-lg bg-info">
+
+        <div class="container">
+          <h1>Les partenaires</h1>
+          <hr>
+          <ul class="list list-unstyled">
+            <li><a href="http://www.letelegramme.fr/"><img src="images/partenaires/telegramme.png" alt="le télégramme"></a></li>
+            <li><a href="http://www.fans-de-bretagne.com/"><img src="images/partenaires/FansdeBretagne_blanc.png" alt="Fans de Bretagne"></a></li>
+            <li><a href="http://www.ouest-france.fr/"><img src="images/partenaires/Ouest-France_blanc.png" alt="Ouest France"></a></li>
+            <li><a href="http://www.tebeotv.fr/"><img src="images/partenaires/Tebeo_blanc.png" alt="Tébéo"></a></li>
+            <li><a href="http://www.tvrennes35bretagne.fr/"><img src="images/partenaires/TV-Rennes_blanc.png" alt="TV Rennes"></a></li>
+            <li><a href="http://www.tebesud.fr/"><img src="images/partenaires/TebeSud_blanc.png" alt="Tébésud"></a></li>
+            <li><a href="http://www.produitenbretagne.com/"><img src="images/partenaires/logo_PEB.png" alt="Produits en Bretagne"></a></li>
+            <li><a href="http://www.aphib.fr/"><img src="images/partenaires/APHIB_blanc.png" alt="Aphib"></a></li>
+            <li><a href="http://www.paysanbreton.fr/"><img src="images/partenaires/logo_PaysanBreton_blc.png" alt="Paysans Bretons"></a></li>
+            <li><a href="http://www.breizhcola.fr/"><img src="images/partenaires/logo_BreizhCola_blc.png" alt="Breizh Cola"></a></li>
+            <li><a href="http://www.restaurateurs-pointe-bretagne.com/vars/fichiers/MenusFetedelaBretagne2015.pdf"><img src="images/partenaires/logo_Restaurateurs_Pointe-Bretagne.png" alt="Restaurateurs pointe Bretagne"></a></li>
+            <li><a href="http://www.radiobreizh.net/bzh/index.php"><img src="images/partenaires/RADIOBREIZH-blanc-300x210-11-300x210.png" alt="Radio Breizh"></a></li>
+          </ul>
+        </div>
+      </section>
+    
+      <footer class="footer p-a-lg">
+        <div class="container">
+          <p><i class="icon-envelope"></i> <strong>contact :</strong> 
+            <script type="text/javascript" language="javascript">
+            <!--
+            // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+            // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+            // This code is freeware provided these four comment lines remain intact
+            // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+            { coded = "JNUNfNITFHNUTkxN@FHNUTkxN.FPO"
+              key = "wqmNKrMAhGklXVTbtDs8RfxZYP2uE73iLSHCeO4vIBjgFUoac1JWy9dnp5z0Q6"
+              shift=coded.length
+              link=""
+              for (i=0; i<coded.length; i++) {
+                if (key.indexOf(coded.charAt(i))==-1) {
+                  ltr = coded.charAt(i)
+                  link += (ltr)
+                }
+                else {     
+                  ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+                  link += (key.charAt(ltr))
+                }
+              }
+            document.write("<a href='mailto:"+link+"'>fetedelabretagne[a]bretagne.bzh</a>")
+            }
+            //-->
+            </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+             / 
+            <script type="text/javascript" language="javascript">
+            <!--
+            // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+            // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+            // This code is freeware provided these four comment lines remain intact
+            // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+            { coded = "RN1WW1@DN1asbo1.D9m"
+              key = "jxWhuyztrqPn0pAUbG5CZwmXV9aNL8o4RJYDHKe6iB7IMsFSkEv3T2cQf1dgOl"
+              shift=coded.length
+              link=""
+              for (i=0; i<coded.length; i++) {
+                if (key.indexOf(coded.charAt(i))==-1) {
+                  ltr = coded.charAt(i)
+                  link += (ltr)
+                }
+                else {     
+                  ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+                  link += (key.charAt(ltr))
+                }
+              }
+            document.write("<a href='mailto:"+link+"'>presse[a]bretagne.bzh</a>")
+            }
+            //-->
+            </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+
+          <p><i class="icon-phone"></i> <strong>Tel :</strong> 02 99 27 13 83</p>
+          <p>&copy; organisée avec le soutien de la <a href="http://wwww.bretagne.bzh">Région Bretagne</a></p>
+        </div>
+      </footer>
     </div>
+    
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -77,22 +179,12 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     
     <!-- build:js scripts/plugins.js -->
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
     
     <!-- build:js scripts/main.js -->
