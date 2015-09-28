@@ -13,6 +13,8 @@
     <meta property="og:url" content="http://www.fetedelabretagne.bzh" />
     <meta property="og:site_name" content="Fête de la Bretagne" />
 
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
@@ -46,43 +48,74 @@
       <a href="http://www.marque-bretagne.fr/" class="m-bretagne"><img src="images/marque-bretagne.png" height="60" width="136" alt="bretagne"></a>
     </header>
 
-      <main class="main p-a-lg" ng-controller="mainCtrl as main">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-               <p>
-                <a href="https://openagenda.com/fete-de-la-bretagne-gouel-breizh-2015" class="btn btn-lg btn-primary-outline"><i class="icon-desktop"></i> voir la programmation</a>
-              </p>
-              <ul class="list-unstyled h2 m-t-lg">
-                <li class="m-b-md"><i class="icon-map-marker"></i> plus de <strong class="text-primary">150</strong> évèvements</li>
-                <li class="m-b-md"><i class="icon-globe"></i> <strong class="text-primary">115</strong> villes dans le monde</li>
-                <li class="m-b-md"><i class="icon-user"></i> <strong class="text-primary">120</strong> organisateurs</li>
-                <li class="m-b-md"><i class="icon-group"></i> <strong class="text-primary">7000</strong> bénévoles</li>
+    <main class="main p-a-lg" ng-controller="mainCtrl as main">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+             <p>
+              <a href="https://openagenda.com/fete-de-la-bretagne-gouel-breizh-2015" class="btn btn-lg btn-primary-outline"><i class="icon-desktop"></i> voir la programmation</a>
+            </p>
+            <ul class="list-unstyled h2 m-t-lg">
+              <li class="m-b-md"><i class="icon-map-marker"></i> <strong class="text-primary">{{main.data.total }}</strong> évèvements</li>
+              <li class="m-b-md"><i class="icon-globe"></i> <strong class="text-primary">115</strong> villes dans le monde</li>
+              <li class="m-b-md"><i class="icon-user"></i> <strong class="text-primary">120</strong> organisateurs</li>
+              <li class="m-b-md"><i class="icon-group"></i> <strong class="text-primary">7000</strong> bénévoles</li>
+            </ul>
+            <hr>
+            <div class="reseaux m-t-md">
+              <ul class="list list-inline">
+                <li><a href="https://www.facebook.com/FetedelaBretagne" class="btn btn-info-outline"><i class="icon-facebook"></i> facebook</a></li>
+                <li><a href="https://twitter.com/FeteBretagne" class="btn btn-info-outline"><i class="icon-twitter"></i> twitter</a></li>
+                <li><a href="http://www.pinterest.com/fetebretagne/" class="btn btn-info-outline"><i class="icon-pinterest"></i> pinterest</a></li>
               </ul>
-              <hr>
-              <div class="reseaux m-t-md">
-                <ul class="list list-inline">
-                  <li><a href="https://www.facebook.com/FetedelaBretagne" class="btn btn-info-outline"><i class="icon-facebook"></i> facebook</a></li>
-                  <li><a href="https://twitter.com/FeteBretagne" class="btn btn-info-outline"><i class="icon-twitter"></i> twitter</a></li>
-                  <li><a href="http://www.pinterest.com/fetebretagne/" class="btn btn-info-outline"><i class="icon-pinterest"></i> pinterest</a></li>
-                </ul>
-              </div>
             </div>
-            <div class="col-md-6">
-              <h2>L'édito</h2>
-              <hr>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
-              <p><i class="icon-download"></i> <a href="#">Télécharger le programme en pdf</a></p>
-              <p>{{ main.test }}</p>
-              <p>{{ main.prog }}</p>
-            </div>
-            
+          </div>
+          <div class="col-md-6">
+            <h2>L'édito</h2>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
+            <p><i class="icon-download"></i> <a href="#">Télécharger le programme en pdf</a></p>
           </div>
           
         </div>
-      </main>
+        
+      </div>
+    </main>
+
+    <section class="zoom p-a-lg" ng-controller="mainCtrl as prog">
+       <div class="container">
+          <h1 class="display-2 text-lowercase text-center">Zoom sur</h1>
+          <ul class="list-unstyled row">
+           <li ng-repeat="evt in prog.data.events | limitTo:2 " class="col-md-6">
+             <div class="card">
+               <img class="card-img-top img-responsive" src="{{ evt.image }}" alt="{{ evt.slug }}">
+               <div class="card-block">
+                <ul class="list-inline tags">
+                  <li ng-repeat="tag in evt.tags"><span class="label label-default">{{ tag.label }}</span></li>
+                </ul>
+                <h4 class="card-title">{{ evt.title.fr }}</h4>
+                 <p class="card-text">{{ evt.description.fr }}</p>
+                 
+                 
+                <hr>
+                 <p class="card-text">
+                    <i class="icon-calendar"></i> <time datetime="{{ evt.timings.start}}">{{evt.range.fr}}</time> <br>
+                    <i class="icon-map-marker"></i> {{evt.city}}
+                  </p>
+                 <p>
+                   <a href="{{ evt.canonicalUrl }}" class="btn btn-primary">voir l'évènement</a>
+                 </p>
+               </div>
+             </div>
+           </li>
+         </ul>
+         <p class="sr-only">{{ prog.data }}</p>
+       </div>
+    </section>
+
+
 
       <section class="partenaires p-a-lg bg-info">
 

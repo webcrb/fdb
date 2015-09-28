@@ -9,26 +9,45 @@
 
 	angular
 	.module('fdbapp')
-	.controller('mainCtrl', mainCtrl);
+	.controller('mainCtrl', mainCtrl)
+	.controller('zoomCtrl', zoomCtrl);
 
-	mainCtrl.$inject = ['$http'];
+	mainCtrl.$inject = ['$http', '$templateCache'];
+	zoomCtrl.$inject = ['$http', '$templateCache'];
 
-	function config() {
-
-  }
-
-	function mainCtrl($http) {
+	function mainCtrl($http, $templateCache) {
 		/* jshint validthis: true */
 		var model = this;
 		model.test = 'test';
+		model.method = 'JSONP';
+		model.url = 'https://openagenda.com/agendas/61400181/events.json?page=1&search%5Bpassed%5D=1&callback=JSON_CALLBACK';
 
-		$http.get('https://openagenda.com/agendas/69113667/events.json?page=1&search[passed]=1')
-		  .success(function(data) {
-	    	model.prog = data;
-	    })
-	    .error(function(data, status) {
-		  	console.error('Repos error', status, data);
-		});
+		$http({method: model.method, url: model.url, cache: $templateCache}).
+        then(function(response) {
+          model.status = response.status;
+          model.data = response.data;
+        }, function(response) {
+          model.data = response.data || 'Request failed';
+          model.status = response.status;
+      });
+
+	}
+
+	function zoomCtrl($http, $templateCache) {
+		/* jshint validthis: true */
+		var model = this;
+		model.test = 'test';
+		model.method = 'JSONP';
+		model.url = 'https://openagenda.com/agendas/61400181/events.json?page=1&search%5Bcategory%5D=zoom&callback=JSON_CALLBACK';
+
+		$http({method: model.method, url: model.url, cache: $templateCache}).
+        then(function(response) {
+          model.status = response.status;
+          model.data = response.data;
+        }, function(response) {
+          model.data = response.data || 'Request failed';
+          model.status = response.status;
+      });
 
 	}
 

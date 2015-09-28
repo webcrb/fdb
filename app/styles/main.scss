@@ -1,5 +1,4 @@
 @import "variables.scss";
-//@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 
 // bower:scss
 @import "bootstrap.scss";
@@ -56,6 +55,20 @@
 			text-shadow: 1px 1px 0px rgba(255, 255, 255, 1);
 		}
 		
+	}
+}
+
+.zoom {
+	background: #eee url(../images/bg-zoom.png);
+	h1 {
+		color: rgba(0,0,0, 0.3);
+	}
+	.card {
+		background: #fff;
+
+		.tags {
+			margin-bottom: 1em;
+		}
 	}
 }
 
