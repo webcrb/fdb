@@ -39,7 +39,7 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <header class="header">
+    <header class="header img-link">
       <div class="texture"></div>
       <div class="wrapper text-center">
         <h1 class="sr-only">Fête de la <br> Bretagne <br><small class="text-muted">gouel breizh</small></h1>
@@ -51,6 +51,7 @@
     <main class="main p-a-lg" ng-controller="mainCtrl as main">
       <div class="container">
         <div class="row">
+
           <div class="col-md-6">
              <p>
               <a href="https://openagenda.com/fete-de-la-bretagne-gouel-breizh-2015" class="btn btn-lg btn-primary-outline"><i class="icon-desktop"></i> voir la programmation</a>
@@ -69,7 +70,8 @@
                 <li><a href="http://www.pinterest.com/fetebretagne/" class="btn btn-info-outline"><i class="icon-pinterest"></i> pinterest</a></li>
               </ul>
             </div>
-          </div>
+          </div><!-- /.col-md-6 -->
+
           <div class="col-md-6">
             <h2>L'édito</h2>
             <hr>
@@ -77,11 +79,18 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
             <p><i class="icon-download"></i> <a href="#">Télécharger le programme en pdf</a></p>
+          </div><!-- /.col-md-6 -->
+
+          <div class="col-md-12">
+            <input type="text" ng-model="main.searchText">
+            <ul>
+              <li ng-repeat="evt in main.data.events | filter:main.searchText">{{ evt.title.fr }}</li>
+            </ul>
           </div>
           
-        </div>
+        </div><!-- /.row -->
         
-      </div>
+      </div><!-- /.container -->
     </main>
 
     <section class="zoom p-a-lg" ng-controller="mainCtrl as prog">
@@ -122,7 +131,7 @@
         <div class="container">
           <h1>Les partenaires</h1>
           <hr>
-          <ul class="list list-unstyled">
+          <ul class="list list-unstyled img-link">
             <li><a href="http://www.letelegramme.fr/"><img src="images/partenaires/telegramme.png" alt="le télégramme"></a></li>
             <li><a href="http://www.fans-de-bretagne.com/"><img src="images/partenaires/FansdeBretagne_blanc.png" alt="Fans de Bretagne"></a></li>
             <li><a href="http://www.ouest-france.fr/"><img src="images/partenaires/Ouest-France_blanc.png" alt="Ouest France"></a></li>

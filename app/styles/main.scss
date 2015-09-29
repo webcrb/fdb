@@ -4,6 +4,17 @@
 @import "bootstrap.scss";
 // endbower
 
+a {
+	border-bottom: 1px dotted #ccc;
+	&:hover, &:focus {
+		text-decoration: none;
+		border-color: #333;
+	}
+	.img-link & {
+		border: none;
+	}
+}
+
 .texture {
 	background: url(../images/texture.png);
 	opacity: 0.05;
@@ -96,7 +107,6 @@
 	}
 
 	a:hover, a:focus {
-		color: $gray-lighter;
-		text-decoration: underline;
+		color: $brand-primary;
 	}
 }
