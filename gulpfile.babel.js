@@ -38,7 +38,11 @@ const testLintOptions = {
     browser: true,
   },
   globals: {
-    angular: true
+    angular: true,
+  },
+  rules: {
+    newIsCap: false,
+    capIsNew: false
   }
 };
 

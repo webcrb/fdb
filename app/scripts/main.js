@@ -30,7 +30,7 @@
 		model.method = 'JSONP';
 		model.url = 'https://openagenda.com/agendas/61400181/events.json?page=1&search[passed]=1&callback=JSON_CALLBACK';
 
-		model.searchText = "rechercher un évènement"
+		model.searchText = 'rechercher un évènement';
 
 		$http({method: model.method, url: model.url, cache: $templateCache}).
         then(function(response) {
@@ -53,7 +53,7 @@
 		$http.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded; charset=UTF-8';
 
 		$http({
-			method: model.method, 
+			method: model.method,
 			url: model.url
 		})
 			.then(function(response) {
@@ -67,29 +67,27 @@
     var editor;
 
 		// Initialise the editor
-		editor = new ContentTools.EditorApp.get()
+		/*global ContentTools*/
+		/*eslint new-cap: 2*/
+		editor = new ContentTools.EditorApp.Get();
 		editor.init('*[data-editable]', 'data-name');
 
 		// Bind a function on editor save
-    editor.bind('save', function(regions, autoSave){
+    editor.bind('save', function(regions){
 
         model.regions = regions;
 
         // "regions" contains all the html for each editable regions
         // Now, "regions" can be saved and used as needed.
 
-				$http.post('contenu.json', regions, {headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
+				$http.post('write.php', regions, {headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}})
 					.success(function (data, response) {
-            console.log("Success" + data + response);
+            console.log('Success' + data + response);
         })
-        	.error(function (data, status, headers, config) {
+        .error(function (data, status, headers, config) {
             console.log(data, status, headers, config);
         });
 
-    })
-
-		
-
+    });
 	}
-
 })();
