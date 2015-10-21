@@ -14,6 +14,7 @@
     <meta property="og:site_name" content="Fête de la Bretagne" />
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -52,25 +53,14 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-md-6">
-             <p>
-              <a href="https://openagenda.com/fete-de-la-bretagne-gouel-breizh-2015" class="btn btn-lg btn-primary-outline"><i class="icon-desktop"></i> voir la programmation</a>
-            </p>
-            <ul class="list-unstyled h2 m-t-lg">
-              <li class="m-b-md"><i class="icon-map-marker"></i> <strong class="text-primary">{{main.data.total }}</strong> évèvements</li>
-              <li class="m-b-md"><i class="icon-globe"></i> <strong class="text-primary">115</strong> villes dans le monde</li>
-              <li class="m-b-md"><i class="icon-user"></i> <strong class="text-primary">120</strong> organisateurs</li>
-              <li class="m-b-md"><i class="icon-group"></i> <strong class="text-primary">7000</strong> bénévoles</li>
-            </ul>
-            <hr>
-            <div class="reseaux m-t-md">
-              <ul class="list list-inline">
-                <li><a href="https://www.facebook.com/FetedelaBretagne" class="btn btn-info-outline"><i class="icon-facebook"></i> facebook</a></li>
-                <li><a href="https://twitter.com/FeteBretagne" class="btn btn-info-outline"><i class="icon-twitter"></i> twitter</a></li>
-                <li><a href="http://www.pinterest.com/fetebretagne/" class="btn btn-info-outline"><i class="icon-pinterest"></i> pinterest</a></li>
-              </ul>
-            </div>
-          </div><!-- /.col-md-6 -->
+          <div class="col-md-12 p-b-lg text-center">
+
+            
+            <a href="https://openagenda.com/fete-de-la-bretagne-gouel-breizh-2015" class="btn btn-lg btn-primary"><i class="icon-calendar"></i> voir la programmation</a>
+
+            <a href="https://openagenda.com/fete-de-la-bretagne-gouel-breizh-2015" class="btn btn-lg btn-secondary"><i class="icon-download"></i> télécharger le programme</a>
+
+          </div>
 
           <div class="col-md-6">
             <h2>L'édito</h2>
@@ -78,15 +68,29 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere inventore eligendi repellendus, ipsam consequuntur quia ipsa et necessitatibus dolore officia eum incidunt corporis repudiandae! Incidunt fugiat corporis minus aliquid error.</p>
-            <p><i class="icon-download"></i> <a href="#">Télécharger le programme en pdf</a></p>
+          </div><!-- /.col-md-6 -->
+
+          <div class="col-md-5 col-md-offset-1">
+
+            <ul class="datakeys list-unstyled h2 m-t-lg m-b-lg">
+              <li class="m-b-lg"><span class="display-4"><i class="icon-map-marker"></i> <strong class="text-primary">{{main.data.total }}</strong></span><br>évèvements au compteur</li>
+              <li class="m-b-lg"><span class="display-1"><i class="icon-globe"></i> <strong class="text-primary">115</strong></span><br>villes dans le monde</li>
+            </ul>
           </div><!-- /.col-md-6 -->
 
           <div class="col-md-12">
-            <input type="text" ng-model="main.searchText">
-            <ul>
-              <li ng-repeat="evt in main.data.events | filter:main.searchText">{{ evt.title.fr }}</li>
-            </ul>
+
+            <div class="reseaux m-t-lg">
+              <ul class="list list-inline">
+                <li><a href="https://www.facebook.com/FetedelaBretagne" class="btn btn-info-outline"><i class="icon-facebook"></i> facebook</a></li>
+                <li><a href="https://twitter.com/FeteBretagne" class="btn btn-info-outline"><i class="icon-twitter"></i> twitter</a></li>
+                <li><a href="http://www.pinterest.com/fetebretagne/" class="btn btn-info-outline"><i class="icon-pinterest"></i> pinterest</a></li>
+                <li><a href="https://www.youtube.com/channel/UCS2iXbWYwew28R8K3f27CIA" class="btn btn-info-outline"><i class="icon-youtube"></i> youtube</a></li>
+              </ul>
+            </div>
+
           </div>
+
           
         </div><!-- /.row -->
         
@@ -94,10 +98,10 @@
     </main>
 
     <section class="zoom p-a-lg" ng-controller="mainCtrl as prog">
-       <div class="container">
+       <div class="containerfluid">
           <h1 class="display-2 text-lowercase text-center">Zoom sur</h1>
           <ul class="list-unstyled row">
-           <li ng-repeat="evt in prog.data.events | limitTo:2 " class="col-md-6">
+           <li ng-repeat="evt in prog.data.events | limitTo:3 " class="col-md-4">
              <div class="card">
                <img class="card-img-top img-responsive" src="{{ evt.image }}" alt="{{ evt.slug }}">
                <div class="card-block">
@@ -106,7 +110,6 @@
                 </ul>
                 <h4 class="card-title">{{ evt.title.fr }}</h4>
                  <p class="card-text">{{ evt.description.fr }}</p>
-                 
                  
                 <hr>
                  <p class="card-text">
@@ -150,6 +153,7 @@
     
       <footer class="footer p-a-lg">
         <div class="container">
+          <div class="display-4 pull-right"><i class="icon-logo_fr">&nbsp;</i></div>
           <p><i class="icon-envelope"></i> <strong>contact :</strong> 
             <script type="text/javascript" language="javascript">
             <!--
@@ -200,9 +204,11 @@
             }
             //-->
             </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+          
 
           <p><i class="icon-phone"></i> <strong>Tel :</strong> 02 99 27 13 83</p>
           <p>&copy; organisée avec le soutien de la <a href="http://wwww.bretagne.bzh">Région Bretagne</a></p>
+
         </div>
       </footer>
     </div>
