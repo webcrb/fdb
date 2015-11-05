@@ -2,3 +2,24 @@ $brand-primary : #e40068;
 $brand-info : #4f5ca1;
 $font-family-sans-serif :  "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $headings-font-family : "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+$gray-lighter:              #ddd;
+
+$brand-primary:             #0275d8 !default;
+$brand-success:             #5cb85c !default;
+$brand-info:                #5bc0de !default;
+$brand-warning:             #f0ad4e !default;
+$brand-danger:              #d9534f !default;
+
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-flex:               false;
+$enable-rounded:            true;
+$enable-shadows:            true;
+$enable-gradients:          true;
+$enable-transitions:        true;
+$enable-hover-media-query:  true;

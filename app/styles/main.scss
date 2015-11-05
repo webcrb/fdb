@@ -26,6 +26,10 @@ a {
 	z-index: 0;
 }
 
+.list-unstyled {
+	margin-bottom:0;
+}
+
 .main {
 	background: #fff;
 }
@@ -50,6 +54,10 @@ a {
 	right: 0;
 }
 
+#wrap {
+	position: relative;
+}
+
 
 .accueil {
 
@@ -59,11 +67,12 @@ a {
 		align-items: center;
 		height: 70vh;
 		opacity: 1;
-		h1 {
-			text-shadow: 2px 2px 0px rgba(255, 255, 255, 1);
-		}
-		h2 {
-			text-shadow: 1px 1px 0px rgba(255, 255, 255, 1);
+
+		.wrapper {
+			width: 100%;
+			background: url(../images/logo_RB.png) bottom right no-repeat;
+			background-size: 130px;
+			padding-bottom: 40px;
 		}
 		
 	}
@@ -71,12 +80,75 @@ a {
 
 .datakeys {
 	color: $gray-light;
+
+	
+	* {
+		transition: all 1s ease-out;
+	}
+
+	.display, .display span {
+		display: block;
+	}
+
+
+	.on {
+		display: inline-block;
+		font-size: 2.5em;
+		color: $gray;
+		text-shadow: 3px 3px 0px $gray-lighter;
+		strong {
+			color: $brand-info;
+		}
+		
+	}
+}
+
+#reseaux {
+	background: rgba(255,255,255, 1);
+	border-bottom: solid 1px rgba(0,0,0,0.2);	
+	
+	ul {
+		margin-bottom: 0;
+		padding: 2em 0;
+		.prog {
+			display: none;
+		}
+
+	}
+
+	&.fix {
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1000;
+
+		ul {
+			padding: 1em 0;
+			.prog {
+				display: inline-block;
+			}
+		}
+		
+	}
+
+	.btn {
+		transition: font-size 0.5s;
+	}
+}
+
+.btn  {
+	.fix & {
+		font-size: 0.8rem;
+	}
 }
 
 .zoom {
 	background: #eee url(../images/bg-zoom.png);
 	h1 {
-		color: rgba(0,0,0, 0.3);
+		color: #fff;
+		text-shadow: 3px 3px 0px $gray;
 	}
 	.card {
 		background: #fff;
@@ -85,6 +157,11 @@ a {
 			margin-bottom: 1em;
 		}
 	}
+}
+
+#teaser {
+	border-bottom: solid 1px rgba(255,255,255,1);
+	@include gradient-radial($gray-lightest, $gray-lighter);
 }
 
 .partenaires .list {

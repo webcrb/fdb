@@ -20,6 +20,7 @@
     <!-- Place favicon.ico in the root directory -->
 
     <!-- build:css styles/vendor.css -->
+    <link rel="stylesheet" href="/bower_components/animate.css/animate.css">
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
@@ -35,11 +36,11 @@
     <script src="/bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body class="accueil">
+  <body class="accueil" >
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+  <div id="wrap">
     <header class="header img-link">
       <div class="texture"></div>
       <div class="wrapper text-center">
@@ -49,8 +50,8 @@
       <a href="http://www.marque-bretagne.fr/" class="m-bretagne"><img src="images/marque-bretagne.png" height="60" width="136" alt="bretagne"></a>
     </header>
 
-    <main class="main p-a-lg" ng-controller="mainCtrl as main">
-      <div class="container">
+    <main class="main p-t-lg" ng-controller="mainCtrl as main">
+      <div class="container" >
         <div class="row">
 
           <div class="col-md-12 p-b-lg text-center">
@@ -73,33 +74,42 @@
           <div class="col-md-5 col-md-offset-1">
 
             <ul class="datakeys list-unstyled h2 m-t-lg m-b-lg">
-              <li class="m-b-lg"><span class="display-4"><i class="icon-map-marker"></i> <strong class="text-primary">{{main.data.total }}</strong></span><br>évèvements au compteur</li>
-              <li class="m-b-lg"><span class="display-1"><i class="icon-globe"></i> <strong class="text-primary">115</strong></span><br>villes dans le monde</li>
+              <li id="triggerData1" class="m-b-lg display display1 animated"><span class="key"><i class="icon-map-marker"></i> <strong class="data">{{main.data.total }}</strong></span>évèvements à ce jour</li>
+              <li id="triggerData2"class="m-b-lg display display2 animated"><span class="key"><i class="icon-globe"></i> <strong class="data">115</strong></span>villes dans le monde</li>
             </ul>
           </div><!-- /.col-md-6 -->
-
-          <div class="col-md-12">
-
-            <div class="reseaux m-t-lg">
-              <ul class="list list-inline">
-                <li><a href="https://www.facebook.com/FetedelaBretagne" class="btn btn-info-outline"><i class="icon-facebook"></i> facebook</a></li>
-                <li><a href="https://twitter.com/FeteBretagne" class="btn btn-info-outline"><i class="icon-twitter"></i> twitter</a></li>
-                <li><a href="http://www.pinterest.com/fetebretagne/" class="btn btn-info-outline"><i class="icon-pinterest"></i> pinterest</a></li>
-                <li><a href="https://www.youtube.com/channel/UCS2iXbWYwew28R8K3f27CIA" class="btn btn-info-outline"><i class="icon-youtube"></i> youtube</a></li>
-              </ul>
-            </div>
-
-          </div>
-
           
         </div><!-- /.row -->
         
       </div><!-- /.container -->
+      
     </main>
+
+    <div id="triggerReseaux">&nbsp;</div>
+
+    <nav id="reseaux">
+      <div class="container">
+          <ul class="list list-inline">
+            <li><a href="https://www.facebook.com/FetedelaBretagne" class="btn btn-info-outline"><i class="icon-facebook"></i> facebook</a></li>
+            <li><a href="https://twitter.com/FeteBretagne" class="btn btn-info-outline"><i class="icon-twitter"></i> twitter</a></li>
+            <li><a href="http://www.pinterest.com/fetebretagne/" class="btn btn-info-outline"><i class="icon-pinterest"></i> pinterest</a></li>
+            <li><a href="https://www.youtube.com/channel/UCS2iXbWYwew28R8K3f27CIA" class="btn btn-info-outline"><i class="icon-youtube"></i> youtube</a></li>
+             <li class="prog pull-right"><a href="https://openagenda.com/fete-de-la-bretagne-gouel-breizh-2015" class="btn btn-primary"><i class="icon-calendar"></i> voir la programmation</a></li>
+          </ul>
+      </div>
+    </nav>
+
+    <aside id="teaser" class="p-a-lg">
+      <div class="container">
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/g6RiDcwBVkw" allowfullscreen></iframe>
+        </div>
+      </div>
+    </aside>
 
     <section class="zoom p-a-lg" ng-controller="mainCtrl as prog">
        <div class="containerfluid">
-          <h1 class="display-2 text-lowercase text-center">Zoom sur</h1>
+          <h1 class="display-2 text-center">Zoom sur</h1>
           <ul class="list-unstyled row">
            <li ng-repeat="evt in prog.data.events | limitTo:3 " class="col-md-4">
              <div class="card">
@@ -127,9 +137,17 @@
        </div>
     </section>
 
-
-
-      <section class="partenaires p-a-lg bg-info">
+    <aside class="bannieres p-a-md">
+      <div class="container">
+        <ul class="list-unstyled row">
+          <li class="col-md-4"><a href="#"><img src="http://placehold.it/400x275" alt="" class="img-responsive"></a></li>
+          <li class="col-md-4"><a href="#"><img src="http://placehold.it/400x275" alt="" class="img-responsive"></a></li>
+          <li class="col-md-4"><a href="#"><img src="http://placehold.it/400x275" alt="" class="img-responsive"></a></li>
+        </ul>
+      </div>
+      
+    </aside>
+    <section class="partenaires p-a-lg bg-info">
 
         <div class="container">
           <h1>Les partenaires</h1>
@@ -203,7 +221,7 @@
             document.write("<a href='mailto:"+link+"'>presse[a]bretagne.bzh</a>")
             }
             //-->
-            </script><noscript>Sorry, you need Javascript on to email me.</noscript>
+            </script><noscript>Vous devez autoriser JavaScript pour envoyer cet e-mail.</noscript>
           
 
           <p><i class="icon-phone"></i> <strong>Tel :</strong> 02 99 27 13 83</p>
@@ -212,6 +230,8 @@
         </div>
       </footer>
     </div>
+
+  </div> <!-- /#wrap -->
     
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -233,10 +253,13 @@
     <!-- endbuild -->
     
     <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js"></script>
+    
     <!-- endbuild -->
     
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <script src="scripts/scroll.js"></script>
     <!-- endbuild -->
   </body>
 </html>
