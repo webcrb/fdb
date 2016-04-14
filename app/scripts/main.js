@@ -20,7 +20,7 @@
 		var model = this;
 		model.test = 'test';
 		model.method = 'JSONP';
-		model.url = 'https://openagenda.com/agendas/61400181/events.json?page=1&search%5Bpassed%5D=1&callback=JSON_CALLBACK';
+		model.url = 'https://openagenda.com/agendas/7663254/events.json?page=1&search%5Bpassed%5D=1&callback=JSON_CALLBACK';
 
 		$http({method: model.method, url: model.url, cache: $templateCache}).
         then(function(response) {
@@ -38,7 +38,7 @@
 		var model = this;
 		model.test = 'test';
 		model.method = 'JSONP';
-		model.url = 'https://openagenda.com/agendas/61400181/events.json?page=2&search%5Bcategory%5D=zoom&callback=JSON_CALLBACK';
+		model.url = 'https://openagenda.com/agendas/7663254/events.json?page=1&search%5Bcategory%5D=zoom&callback=JSON_CALLBACK';
 
 		$http({method: model.method, url: model.url, cache: $templateCache}).
         then(function(response) {

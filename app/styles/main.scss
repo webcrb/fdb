@@ -4,6 +4,14 @@
 @import "bootstrap.scss";
 // endbower
 
+body {
+	background: url(../images/bg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	position: relative;
+}
+
 a {
 	border-bottom: 1px dotted #ccc;
 	&:hover, &:focus {
@@ -31,7 +39,7 @@ a {
 }
 
 .main {
-	background: #fff;
+	background: rgba(255,255,255,0.9);
 }
 
 .wrapper {
@@ -40,10 +48,6 @@ a {
 }
 
 .header {
-	background: url(../images/bg.jpg);
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: bottom;
 	position: relative;
 }
 
@@ -63,17 +67,33 @@ a {
 
 	.header {
 		display: flex;
-		justify-content : center;
+		justify-content: center;
 		align-items: center;
 		height: 70vh;
 		opacity: 1;
+		position: relative;
 
-		.wrapper {
-			width: 100%;
-			background: url(../images/logo_RB.png) bottom right no-repeat;
-			background-size: 130px;
-			padding-bottom: 40px;
+
+		img {
+			
+			@include img-responsive();
+			z-index: 200;
+
 		}
+
+		&:after {
+			content: '';
+			display: block;
+			width: 130px;
+			height: 60px;
+			background: url(../images/logo_RB.png) center no-repeat;
+			background-size: 100%;
+			position: absolute;
+			right: 0;
+			bottom: 1em;
+		}
+
+
 		
 	}
 }
@@ -81,17 +101,13 @@ a {
 .datakeys {
 	color: $gray-light;
 
-	
-	* {
-		transition: all 1s ease-out;
-	}
 
 	.display, .display span {
 		display: block;
 	}
 
 
-	.on {
+	.key {
 		display: inline-block;
 		font-size: 2.5em;
 		color: $gray;
@@ -145,11 +161,11 @@ a {
 }
 
 .zoom {
-	background: #eee url(../images/bg-zoom.png);
-	h1 {
-		color: #fff;
-		text-shadow: 3px 3px 0px $gray;
-	}
+	background-color: #b5ada2;
+	background-image: url(../images/bg-programmation.png);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+
 	.card {
 		background: #fff;
 
@@ -160,23 +176,32 @@ a {
 }
 
 #teaser {
-	border-bottom: solid 1px rgba(255,255,255,1);
-	@include gradient-radial($gray-lightest, $gray-lighter);
+	border-bottom: solid 1px rgba(255,255,255,0.8);
+	background-color: $brand-primary;
+	background-image: url(../images/bg-teaser.png);
+	background-repeat: no-repeat;
+	background-position: top right;
 }
 
-.partenaires .list {
-	display : flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-content: space-between;
-	align-items: baseline;
-	li {
-		flex: 1;
-		flex-basis: 15%;
-		align-self: center;
-		text-align: center;
-		img {
-			max-width: 150px;
+.partenaires {
+	background-image: url(../images/bg-partenaires.png);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	padding-bottom: 250px !important;
+	.list {
+		display : flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-content: space-between;
+		align-items: baseline;
+		li {
+			flex: 1;
+			flex-basis: 15%;
+			align-self: center;
+			text-align: center;
+			img {
+				max-width: 150px;
+			}
 		}
 	}
 }
